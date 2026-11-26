@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#143229">
+<title>Pinhal, 27 a 29 de novembro</title>
+<meta name="description" content="Roteiro de três dias em Santo Antônio do Pinhal: onde comer, o que fazer e o que aceita pet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: guia de bolso de trilha. Coluna única, horários numa régua à esquerda, altitude e km como dado de serra. */
+:root{
+  --neblina:#e9eeec; --papel:#f7f9f8; --pinho:#143229; --pinho-2:#2c5345;
+  --tinta:#17211d; --suave:#5d6b65; --linha:#cdd6d2;
+  --pinhao:#c8791a; --pinhao-tinta:#7a4708; --pinhao-fundo:#f6e7cf;
+  --pet:#1f6f8b; --pet-fundo:#dcecf1; --ok:#2c7a4b;
+  --nav:#143229; --nav-tinta:#b9cbc4; --nav-ativo:#f7f9f8;
+  --display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --texto:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --neblina:#0e1614; --papel:#16211e; --pinho:#dcebe5; --pinho-2:#9fc2b4;
+  --tinta:#e6eeeb; --suave:#93a39c; --linha:#2a3a35;
+  --pinhao:#e6a04a; --pinhao-tinta:#f1c58c; --pinhao-fundo:#3a2a12;
+  --pet:#7cc4dc; --pet-fundo:#12303a; --ok:#6fcf97;
+  --nav:#22332e; --nav-tinta:#93a39c; --nav-ativo:#ffffff; color-scheme:dark;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--neblina);color:var(--tinta);font:16px/1.5 var(--texto);
+  padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+.wrap{max-width:620px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.02em}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--pinhao);outline-offset:2px;border-radius:4px}
+[hidden]{display:none!important}
+
+/* topo */
+.topo{background:var(--pinho);color:var(--neblina);padding-top:calc(28px + env(safe-area-inset-top,0px));overflow:hidden}
+.topo .wrap{position:relative}
+.selo{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.75}
+.topo h1{font-size:clamp(2.6rem,13vw,4.2rem);line-height:.92;font-weight:800;margin:10px 0 14px}
+.topo h1 span{display:block;font-weight:400;font-size:.42em;letter-spacing:0;line-height:1.2;opacity:.85}
+.fatos{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.85rem;opacity:.85;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.serra{display:block;width:100%;height:64px;margin-top:10px}
+.serra path{fill:var(--neblina)}
+.serra .fundo{fill:var(--pinho-2);opacity:.9}
+
+/* progresso */
+.prog{display:flex;align-items:center;gap:12px;padding:14px 0 4px;font-size:.85rem;color:var(--suave)}
+.barra{flex:1;height:4px;background:var(--linha);border-radius:2px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--pinhao);width:0;transition:width .3s}
+
+.vista{padding-top:18px}
+.vista>h2{font-size:1.9rem;font-weight:800;line-height:1}
+.lead{color:var(--suave);margin:6px 0 16px;font-size:.95rem;max-width:52ch}
+
+/* dias */
+.dias{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+.dias button{padding:10px 6px;border:1px solid var(--linha);border-radius:10px;text-align:left;padding-left:12px;background:var(--papel)}
+.dias b{display:block;font-family:var(--display);font-size:1.5rem;line-height:1;font-weight:800}
+.dias small{color:var(--suave);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
+.dias button[aria-pressed=true]{background:var(--pinho);color:var(--neblina);border-color:var(--pinho)}
+.dias button[aria-pressed=true] small{color:inherit;opacity:.75}
+.tema{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:18px 0 4px}
+
+/* régua de horários */
+.regua{list-style:none;margin:0;padding:0}
+.regua>li{display:grid;grid-template-columns:54px 1fr;gap:0 12px;padding:16px 0;border-top:1px solid var(--linha)}
+.hora{font-family:var(--display);font-weight:600;font-size:1.05rem;font-variant-numeric:tabular-nums;color:var(--pinho-2);padding-top:1px}
+.hora small{display:block;font:500 .7rem var(--texto);color:var(--suave);text-transform:uppercase;letter-spacing:.06em}
+.slot{min-width:0}
+.alt{margin-top:10px;padding-top:8px;border-top:1px dashed var(--linha)}
+.alt>span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--suave);font-weight:600}
+
+/* item marcável */
+.item{display:grid;grid-template-columns:1fr 30px;gap:10px;align-items:start;padding:6px 0}
+.item .corpo{min-width:0}
+.item h3{font-size:1.08rem;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.item p{margin:3px 0 0;font-size:.9rem;color:var(--suave)}
+.item.feito h3{text-decoration:line-through;text-decoration-thickness:1.5px;opacity:.55}
+.marca{width:30px;height:30px;border:1.5px solid var(--pinho-2);border-radius:50%;display:grid;place-items:center}
+.marca svg{width:16px;height:16px;stroke:var(--papel);opacity:0}
+.marca[aria-pressed=true]{background:var(--ok);border-color:var(--ok)}
+.marca[aria-pressed=true] svg{opacity:1}
+.alt .item h3{font-size:.98rem;font-weight:500}
+
+/* selos */
+.selos{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.s{font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:99px;border:1px solid var(--linha);color:var(--suave);white-space:nowrap}
+.s.prato{background:var(--pinhao-fundo);border-color:transparent;color:var(--pinhao-tinta)}
+.s.pet{background:var(--pet-fundo);border-color:transparent;color:var(--pet);display:inline-flex;align-items:center;gap:4px}
+.s.pet svg{width:11px;height:11px;fill:currentColor}
+.s.conf{border-style:dashed}
+
+/* fichas */
+.filtros{display:flex;gap:6px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none;margin-right:-18px;padding-right:18px}
+.filtros::-webkit-scrollbar{display:none}
+.filtros button{flex:none;padding:7px 13px;border:1px solid var(--linha);border-radius:99px;font-size:.85rem;font-weight:500;background:var(--papel)}
+.filtros button[aria-pressed=true]{background:var(--pinho);border-color:var(--pinho);color:var(--neblina)}
+.ficha{background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}
+.ficha .item{padding:0}
+.dados{margin:10px 0 0;padding:0;font-size:.85rem;display:grid;gap:3px}
+.dados div{display:grid;grid-template-columns:72px 1fr;gap:8px}
+.dados dt{color:var(--suave)}
+.dados dd{margin:0;min-width:0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.acoes{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:.85rem;font-weight:600}
+.acoes a{color:var(--pinho-2);text-underline-offset:3px}
+.aviso{font-size:.85rem;color:var(--suave);border-left:3px solid var(--pinhao);padding:2px 0 2px 12px;margin:0 0 16px}
+.grupo{font-family:var(--display);font-size:1.15rem;font-weight:600;margin:22px 0 10px}
+.vazio{border:1px dashed var(--linha);border-radius:14px;padding:22px 16px;color:var(--suave);text-align:left}
+.limpar{margin-top:14px;font-size:.85rem;text-decoration:underline;color:var(--suave)}
+.fontes{font-size:.78rem;color:var(--suave);margin-top:28px;border-top:1px solid var(--linha);padding-top:12px}
+
+/* barra flutuante */
+.nav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;
+  width:min(440px,calc(100% - 24px));background:var(--nav);border-radius:22px;padding:7px;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:2px;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+.nav button{display:grid;justify-items:center;gap:3px;padding:8px 2px 6px;border-radius:16px;color:var(--nav-tinta);font-size:.68rem;font-weight:600;position:relative}
+.nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav button[aria-current=page]{color:var(--nav-ativo);background:rgba(255,255,255,.12)}
+.nav .n{position:absolute;top:3px;right:calc(50% - 22px);min-width:17px;height:17px;border-radius:9px;background:var(--pinhao);color:#1b1205;font-size:.65rem;display:grid;place-items:center;padding:0 4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <div class="selo">Serra da Mantiqueira · SP</div>
+    <h1>Santo Antônio do Pinhal<span>sexta 27 a domingo 29 de novembro</span></h1>
+    <div class="fatos"><span>1.080 m no centro</span><span>1.700 m no Pico Agudo</span><span>30 min de Campos do Jordão</span></div>
+  </div>
+  <svg class="serra" viewBox="0 0 400 64" preserveAspectRatio="none" aria-hidden="true">
+    <path class="fundo" d="M0 64V40l38-18 30 14 44-30 40 26 34-16 50 22 42-26 46 20 38-14 38 18v28z"/>
+    <path d="M0 64V52l52-16 36 12 48-22 46 20 40-12 58 18 44-16 40 12 36-8v24z"/>
+  </svg>
+</header>
+
+<main class="wrap">
+  <div class="prog"><span id="progTxt">0 marcados</span><div class="barra"><i id="progBar"></i></div></div>
+
+  <section class="vista" id="v-roteiro">
+    <h2>Roteiro</h2>
+    <p class="lead">Um plano por dia, com alternativa em cada horário. Toque no círculo para marcar o que vocês vão fazer.</p>
+    <div class="dias" id="dias"></div>
+    <div id="dia"></div>
+  </section>
+
+  <section class="vista" id="v-comer" hidden>
+    <h2>Onde comer</h2>
+    <p class="lead">Todos os restaurantes, cervejarias e cafés que apareceram na pesquisa, com o que cada casa faz de melhor.</p>
+    <p class="aviso">Nenhuma casa publica cardápio com preço na internet. Use o link Cardápio de cada ficha ou ligue. Carbonara não foi confirmada em nenhuma: as apostas são as italianas marcadas com Massas.</p>
+    <div class="filtros" id="filtros"></div>
+    <div id="listaComer"></div>
+  </section>
+
+  <section class="vista" id="v-fazer" hidden>
+    <h2>O que fazer</h2>
+    <p class="lead">Mirantes, cachoeira, centro, trilhas e produtores. Distâncias contadas a partir do centro.</p>
+    <div id="listaFazer"></div>
+  </section>
+
+  <section class="vista" id="v-pet" hidden>
+    <h2>Com o pet</h2>
+    <p class="lead">Só o que tem indicação de aceitar animal. Selo cheio é indicado por guia ou pelo próprio lugar. Selo tracejado precisa de confirmação.</p>
+    <p class="aviso">Leve guia, água e um pano para o carro. Em restaurante, o normal é ficar na área externa. Em novembro chove à tarde: deixe trilha e mirante para a manhã.</p>
+    <div id="listaPet"></div>
+  </section>
+
+  <section class="vista" id="v-lista" hidden>
+    <h2>Nossa lista</h2>
+    <p class="lead">Tudo o que vocês marcaram, salvo neste aparelho.</p>
+    <div id="listaMeus"></div>
+  </section>
+
+  <p class="fontes">Informações de guias de viagem, BaresSP, Wanderlog, Tripadvisor, Guia Pet Friendly, Destino Pet e do site da Cachoeira do Lageado, levantadas em 26/11/2026. Horários, preços e regra de pet mudam: confirme antes de sair.</p>
+</main>
+
+<nav class="nav" aria-label="Seções">
+  <button data-v="roteiro"><svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"/></svg>Roteiro</button>
+  <button data-v="comer"><svg viewBox="0 0 24 24"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10M17 3c-2 1.5-3 4-3 7v2h3zM17 12v9"/></svg>Comer</button>
+  <button data-v="fazer"><svg viewBox="0 0 24 24"><path d="M2.5 19.5 9 7l4 7 2.5-4 6 9.5z"/><path d="m7.2 10.5 1.8 1.4 1.6-1.6"/></svg>Fazer</button>
+  <button data-v="pet"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="11" rx="1.7" ry="2.3"/><ellipse cx="10" cy="6.5" rx="1.7" ry="2.3"/><ellipse cx="14.5" cy="6.5" rx="1.7" ry="2.3"/><ellipse cx="18.3" cy="11" rx="1.7" ry="2.3"/><path d="M12.2 12c-2.6 0-5 3-5 5.3 0 1.6 1.3 2.4 2.7 2.2 1.5-.2 3-.2 4.5 0 1.400.2 2.800-.6 2.800-2.200 0-2.300-2.400-5.300-5-5.300z"/></svg>Pet</button>
+  <button data-v="lista"><svg viewBox="0 0 24 24"><path d="m4 6.500 1.500 1.500L8 5.500M4 12.500l1.500 1.500L8 11.500M4 18.500l1.500 1.500L8 17.500M11.500 7H20M11.500 13H20M11.500 19H20"/></svg>Lista<span class="n" id="navN" hidden>0</span></button>
+</nav>
+
+<script>
+const PATA='<svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="6" cy="11" rx="2" ry="2.600"/><ellipse cx="10" cy="6.500" rx="2" ry="2.600"/><ellipse cx="14.500" cy="6.500" rx="2" ry="2.600"/><ellipse cx="18.300" cy="11" rx="2" ry="2.600"/><path d="M12.200 12c-2.600 0-5 3-5 5.300 0 1.600 1.300 2.400 2.700 2.200 1.500-.2 3-.2 4.500 0 1.400.2 2.800-.6 2.800-2.200 0-2.300-2.400-5.300-5-5.300z"/></svg>';
+const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.500 4.500 4.500L19 7.500"/></svg>';
+
+// pet: 's' indicado, 'c' confirmar
+const L=[
+ {id:'donna',k:'c',n:'Donna Pinha',d:'O mais premiado da cidade, entre os melhores do mundo em Noite Romântica no Tripadvisor 2025. Cozinha de serra com truta e pinhão; fondue só à noite.',tags:['Truta','Fondue','Romântico'],pratos:['Trutas','Pratos com pinhão','Fondues e cremes (a partir das 19h)','Menu vegano'],pet:'s',pn:'Em lista de pet friendly de 2026',preco:'Caro. Estimativa: R$ 150 a 250 por pessoa',end:'Av. Antônio Joaquim de Oliveira, 647, Centro',tel:'(12) 3666-2669',hr:'Almoço todo dia 11h–17h. Jantar sex e sáb até 23h. Dom até 18h'},
+ {id:'riso',k:'c',n:'Riso Bistrô da Mantiqueira',d:'Bistrô pequeno dedicado a risotos e massas artesanais com ingredientes da serra. Indicado para jantar a dois.',tags:['Risoto','Massas','Romântico'],pratos:['Risotos','Massas artesanais'],pet:'c',preco:'Estimativa: R$ 80 a 140 o prato',end:'Av. Min. Nelson Hungria, 827, Centro'},
+ {id:'imperius',k:'c',n:"Imperiu's Bar e Restaurante",d:'Porções fartas e preço justo nas avaliações. O prato mais comentado junta risoto e carne.',tags:['Risoto','Carnes'],pratos:['Risoto de shimeji com picanha'],pet:'s',pn:'Em lista de pet friendly de 2026',preco:'Preço justo, segundo avaliações'},
+ {id:'gringos',k:'c',n:'Los Gringos',d:'Muito elogiado por comida, atendimento e ambiente.',tags:['Risoto'],pratos:['Risoto de funghi'],pet:'c'},
+ {id:'picanha',k:'c',n:'Picanha & Pasta',d:'A casa de carnes da cidade, classificada como steakhouse. Também serve massas.',tags:['Carnes','Massas'],pratos:['Cortes argentinos','Picanha','Massas'],pet:'s',pn:'Em lista de pet friendly de 2026'},
+ {id:'arco',k:'c',n:'Restaurante Arco Íris',d:'Mesas à beira do lago onde as trutas são criadas. Abre só para almoço.',tags:['Truta'],pratos:['Trutas, o carro-chefe'],pet:'s',pn:'Mesas para pet na área externa coberta',hr:'Só almoço'},
+ {id:'massamel',k:'c',n:'Massa ao Mel',d:'Massas com mel de produção própria, a preços razoáveis.',tags:['Massas'],pratos:['Sorrentinos de brie, amêndoas e mel, com molho branco ou ao sugo'],pet:'s',pn:'Em lista de pet friendly de 2026',preco:'Razoável, segundo avaliações'},
+ {id:'pizzapasta',k:'c',n:'Santo Antônio Pizza & Pasta',d:'Cozinha italiana num antigo armazém de família, no centro.',tags:['Massas','Pizza'],pratos:['Pizzas','Massas italianas'],pet:'c'},
+ {id:'nonna',k:'c',n:'Nonna Pia Trattoria',d:'Trattoria e pizzaria com massa fresca feita na casa.',tags:['Massas','Pizza'],pratos:['Massas frescas artesanais','Pizzas'],pet:'c'},
+ {id:'araucaria',k:'c',n:'Santa Araucária',d:'Ambiente tranquilo, bom atendimento e estacionamento próprio.',tags:[],pratos:[],pet:'s',pn:'Aceita pet na área externa, segundo avaliação'},
+ {id:'torre',k:'c',n:'Torre do Pinhão',d:'Cardápio em torno do pinhão, o ingrediente da serra.',tags:['Pinhão'],pratos:['Pratos com pinhão'],pet:'c'},
+ {id:'cantogula',k:'c',n:'Canto da Gula',d:'Bistrô acolhedor na avenida principal.',tags:[],pratos:[],pet:'c',end:'Av. Antônio Joaquim de Oliveira, Centro'},
+ {id:'voolivre',k:'c',n:'Voo Livre',d:'Restaurante citado em guia de 2026 entre os que recebem pet.',tags:[],pratos:[],pet:'s',pn:'Em lista de pet friendly de 2026'},
+ {id:'nini',k:'c',n:'Empório NiNi',d:'Empório citado em guia de 2026 entre os que recebem pet.',tags:['Café'],pratos:[],pet:'s',pn:'Em lista de pet friendly de 2026'},
+ {id:'familia',k:'c',n:'La Família',d:'Citado em guia de 2026 entre os que recebem pet.',tags:[],pratos:[],pet:'s',pn:'Em lista de pet friendly de 2026'},
+ {id:'kroko',k:'c',n:'Krokodillo IV',d:'Citado em guia de 2026 entre os que recebem pet.',tags:[],pratos:[],pet:'s',pn:'Em lista de pet friendly de 2026'},
+ {id:'araukarien',k:'c',n:'Araukarien Cerveja Artesanal',d:'Cervejaria com cozinha e empório da marca.',tags:['Cerveja'],pratos:['Degustação de 6 estilos de cerveja'],pet:'c'},
+ {id:'carijo',k:'c',n:'Carijó Empório e Cervejaria',d:'Lugar pequeno e aconchegante. A cerveja não é engarrafada, só se bebe lá.',tags:['Cerveja','Truta'],pratos:['Pastel de truta','Pastel de angu'],pet:'c'},
+ {id:'fritz',k:'c',n:'Fritz Cervejaria Artesanal',d:'Rótulos próprios e comida de inspiração alemã.',tags:['Cerveja'],pratos:['Pratos alemães'],pet:'c'},
+ {id:'matinal',k:'c',n:'Matinal',d:'Café e lanchonete para o café da manhã ou o lanche da tarde.',tags:['Café'],pratos:[],pet:'c'},
+ {id:'viola',k:'c',n:'Viola Pães e Doces',d:'Padaria e doceria.',tags:['Café'],pratos:[],pet:'c'},
+ {id:'vovo',k:'c',n:'Empório Vovó',d:'Doces e chocolates para levar.',tags:['Café'],pratos:[],pet:'c'},
+
+ {id:'pico',k:'f',n:'Pico Agudo',d:'A vista mais alta da cidade, sobre a Mantiqueira e o Vale do Paraíba. Rampa de voo livre no topo. O carro chega perto do cume; evite com chuva ou neblina.',tags:['Mirante','1.700 m'],pet:'s',pn:'Citado como passeio com pet em guia de 2026',preco:'Gratuito',km:'8 km'},
+ {id:'parapente',k:'f',n:'Voo duplo de parapente',d:'Sai da rampa do Pico Agudo, com instrutor. Depende do tempo; combine no dia anterior.',tags:['Aventura'],pet:'n',preco:'Consultar operadoras',km:'8 km'},
+ {id:'lageado',k:'f',n:'Cachoeira do Lageado',d:'Queda com piscina natural, lanchonete, bar, banheiros e área de piquenique.',tags:['Cachoeira'],pet:'s',pn:'Pet friendly segundo o site oficial',preco:'R$ 30 por pessoa',km:'7 km'},
+ {id:'auxiliadora',k:'f',n:'Mirante Nossa Senhora Auxiliadora',d:'Ao lado da estação de trem, com vista do vale. Bom no fim da tarde.',tags:['Mirante'],pet:'s',pn:'Área aberta, na guia',preco:'Gratuito'},
+ {id:'estacao',k:'f',n:'Estação Eugênio Lefèvre',d:'Estação antiga da estrada de ferro para Campos do Jordão, com café e o famoso bolinho de bacalhau.',tags:['História'],pet:'s',pn:'Área aberta, na guia',preco:'Gratuito'},
+ {id:'cruzeiro',k:'f',n:'Mirante do Cruzeiro',d:'Vista da cidade. Dá para subir a pé por uma trilha de cerca de 1 km saindo da Igreja Matriz.',tags:['Mirante','Trilha'],pet:'s',pn:'Trilha aberta, na guia',preco:'Gratuito',km:'1 km a pé'},
+ {id:'centro',k:'f',n:'Centro a pé',d:'Praça Boulevard Araucária, Praça do Artesão, Igreja Matriz, fonte de Santo Antônio, lojas, ateliês e cafés.',tags:['Passeio'],pet:'s',pn:'Ruas e praças, na guia',preco:'Gratuito'},
+ {id:'benedito',k:'f',n:'Igreja de São Benedito',d:'Vale pela escadaria decorada.',tags:['Passeio'],pet:'s',pn:'Área externa, na guia',preco:'Gratuito'},
+ {id:'jardim',k:'f',n:'Jardim dos Pinhais Ecco Parque',d:'Jardins temáticos para caminhar sem pressa. Boa opção se o tempo fechar.',tags:['Jardim'],pet:'c',preco:'R$ 49 adulto',hr:'Sáb e dom 9h–18h. Seg a sex 9h–17h. Fecha terça'},
+ {id:'trilhas',k:'f',n:'Trilhas do Cambraia e do Zigue-Zague',d:'As duas trilhas citadas nos guias para quem quer caminhar mais.',tags:['Trilha'],pet:'c',preco:'Gratuito'},
+ {id:'sabia',k:'f',n:'Azeite Sabiá',d:'Produtor de azeite premiado da serra. Confirme se há visita ou só loja.',tags:['Produtor'],pet:'c'},
+ {id:'cervejarias',k:'f',n:'Rota das cervejarias',d:'Araukarien, Carijó e Fritz. Escolham uma para o fim de tarde.',tags:['Produtor'],pet:'c'},
+ {id:'campos',k:'f',n:'Bate-volta a Campos do Jordão',d:'Capivari e arredores, a meia hora de carro.',tags:['Fora da cidade'],pet:'c',km:'30 min'}
+];
+const P=Object.fromEntries(L.map(x=>[x.id,x]));
+
+const DIAS=[
+ {d:'27',s:'Sexta',tema:'Chegada e centro',slots:[
+  {h:'15h',l:'tarde',id:'centro',alt:['benedito']},
+  {h:'17h30',l:'pôr do sol',id:'auxiliadora',alt:['cruzeiro']},
+  {h:'20h',l:'jantar',id:'imperius',nota:'Risoto de shimeji com picanha.',alt:['gringos','massamel']}]},
+ {d:'28',s:'Sábado',tema:'Serra de manhã, risoto à noite',slots:[
+  {h:'8h30',l:'manhã',id:'pico',nota:'Cedo, antes da neblina e da chuva da tarde.',alt:['cruzeiro']},
+  {h:'12h30',l:'almoço',id:'arco',nota:'Truta à beira do lago.',alt:['picanha','araucaria']},
+  {h:'15h',l:'tarde',id:'lageado',alt:['jardim','cervejarias']},
+  {h:'20h',l:'jantar',id:'riso',nota:'Reservem. Perguntem sobre pet ao ligar.',alt:['gringos','nonna']}]},
+ {d:'29',s:'Domingo',tema:'Aniversário e estrada',slots:[
+  {h:'9h30',l:'manhã',id:'estacao',nota:'Café e bolinho de bacalhau.',alt:['matinal']},
+  {h:'11h',l:'presente',id:'sabia',alt:['vovo','carijo']},
+  {h:'13h',l:'almoço de aniversário',id:'donna',nota:'Reservem e avisem que é aniversário. Fecha às 18h no domingo.',alt:['riso','picanha']}]}
+];
+
+const KEY='pinhal-marcados';
+let marc={};try{marc=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const salvar=()=>{try{localStorage.setItem(KEY,JSON.stringify(marc))}catch(e){}};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const q=p=>encodeURIComponent(p.n+' Santo Antônio do Pinhal');
+
+function selos(p){
+  let h=p.tags.map(t=>`<span class="s ${['Risoto','Massas','Carnes','Truta','Fondue','Pizza','Cerveja','Pinhão'].includes(t)?'prato':''}">${esc(t)}</span>`).join('');
+  if(p.pet==='s')h+=`<span class="s pet">${PATA}Pet friendly</span>`;
+  else if(p.pet==='c')h+=`<span class="s conf">Pet: confirmar</span>`;
+  return `<div class="selos">${h}</div>`;
+}
+function item(p,nota){
+  const on=!!marc[p.id];
+  return `<div class="item${on?' feito':''}" data-id="${p.id}"><div class="corpo"><h3>${esc(p.n)}</h3><p>${esc(nota||p.d)}</p>${selos(p)}</div>
+  <button class="marca" aria-pressed="${on}" aria-label="Marcar ${esc(p.n)}">${CHECK}</button></div>`;
+}
+function ficha(p){
+  const r=[];
+  if(p.pratos&&p.pratos.length)r.push(['Pede-se',p.pratos.join(' · ')]);
+  if(p.preco)r.push(['Preço',p.preco]);
+  if(p.km)r.push(['Distância',p.km]);
+  if(p.hr)r.push(['Horário',p.hr]);
+  if(p.end)r.push(['Endereço',p.end]);
+  if(p.tel)r.push(['Telefone',p.tel]);
+  if(p.pn)r.push(['Pet',p.pn]);
+  const a=[`<a href="https://www.google.com/maps/search/?api=1&query=${q(p)}" target="_blank" rel="noopener">Mapa</a>`];
+  if(p.k==='c')a.push(`<a href="https://www.google.com/search?q=${q(p)}+card%C3%A1pio" target="_blank" rel="noopener">Cardápio</a>`);
+  if(p.tel)a.push(`<a href="tel:+55${p.tel.replace(/\D/g,'')}">Ligar</a>`);
+  return `<article class="ficha">${item(p)}${r.length?`<dl class="dados">${r.map(x=>`<div><dt>${x[0]}</dt><dd>${esc(x[1])}</dd></div>`).join('')}</dl>`:''}<div class="acoes">${a.join('')}</div></article>`;
+}
+
+let dia=0,filtro='Todos',vista='roteiro';
+const FILTROS=['Todos','Risoto','Massas','Carnes','Truta','Pizza','Fondue','Cerveja','Café','Pet friendly'];
+
+function render(){
+  $('#dias').innerHTML=DIAS.map((x,i)=>`<button aria-pressed="${i===dia}" data-dia="${i}"><b>${x.d}</b><small>${x.s}</small></button>`).join('');
+  const D=DIAS[dia];
+  $('#dia').innerHTML=`<div class="tema">${esc(D.tema)}</div><ol class="regua">${D.slots.map(s=>`<li><div class="hora">${s.h}<small>${esc(s.l)}</small></div><div class="slot">${item(P[s.id],s.nota)}${s.alt?`<div class="alt"><span>Ou então</span>${s.alt.map(a=>item(P[a])).join('')}</div>`:''}</div></li>`).join('')}</ol>`;
+
+  $('#filtros').innerHTML=FILTROS.map(f=>`<button aria-pressed="${f===filtro}" data-f="${f}">${f}</button>`).join('');
+  const comer=L.filter(p=>p.k==='c'&&(filtro==='Todos'||(filtro==='Pet friendly'?p.pet==='s':p.tags.includes(filtro))));
+  $('#listaComer').innerHTML=comer.map(ficha).join('')||'<div class="vazio">Nenhuma casa com esse selo. Fondue, por exemplo, só o Donna Pinha confirma.</div>';
+  $('#listaFazer').innerHTML=L.filter(p=>p.k==='f').map(ficha).join('');
+  $('#listaPet').innerHTML=`<div class="grupo">Passeios</div>${L.filter(p=>p.k==='f'&&p.pet==='s').map(ficha).join('')}<div class="grupo">Restaurantes</div>${L.filter(p=>p.k==='c'&&p.pet==='s').map(ficha).join('')}`;
+
+  const meus=L.filter(p=>marc[p.id]);
+  $('#listaMeus').innerHTML=meus.length?`${meus.filter(p=>p.k==='f').length?'<div class="grupo">Passeios</div>':''}${meus.filter(p=>p.k==='f').map(ficha).join('')}${meus.filter(p=>p.k==='c').length?'<div class="grupo">Para comer</div>':''}${meus.filter(p=>p.k==='c').map(ficha).join('')}<button class="limpar" id="limpar">Desmarcar tudo</button>`
+   :'<div class="vazio">Nada marcado ainda. Abra o Roteiro e toque no círculo ao lado de cada lugar que vocês querem fazer.</div>';
+
+  const n=meus.length;
+  $('#progTxt').textContent=n===1?'1 marcado':n+' marcados';
+  $('#progBar').style.width=Math.min(100,n/10*100)+'%';
+  $('#navN').hidden=!n;$('#navN').textContent=n;
+
+  document.querySelectorAll('.vista').forEach(v=>v.hidden=v.id!=='v-'+vista);
+  document.querySelectorAll('.nav button').forEach(b=>b.dataset.v===vista?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));
+}
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t)return;
+  if(t.classList.contains('marca')){const id=t.closest('.item').dataset.id;marc[id]?delete marc[id]:marc[id]=1;salvar();render();return}
+  if(t.dataset.dia){dia=+t.dataset.dia;render();return}
+  if(t.dataset.f){filtro=t.dataset.f;render();return}
+  if(t.id==='limpar'){marc={};salvar();render();return}
+  if(t.dataset.v){vista=t.dataset.v;try{history.replaceState(null,'','#'+vista)}catch(e){}render();window.scrollTo({top:0});}
+});
+const h=location.hash.slice(1);if(['roteiro','comer','fazer','pet','lista'].includes(h))vista=h;
+const hoje=new Date();if(hoje.getMonth()===10&&hoje.getFullYear()===2026){const i=DIAS.findIndex(x=>+x.d===hoje.getDate());if(i>=0)dia=i}
+render();
+</script>
+</body>
+</html>
