@@ -173,15 +173,15 @@ a{color:inherit}
 
   <section class="vista" id="v-comer" hidden>
     <h2>Onde comer</h2>
-    <p class="lead">Todos os restaurantes, cervejarias e cafés que apareceram na pesquisa, com o que cada casa faz de melhor.</p>
-    <p class="aviso">Nenhuma casa publica cardápio com preço na internet. Use o link Cardápio de cada ficha ou ligue. Carbonara não foi confirmada em nenhuma: as apostas são as italianas marcadas com Massas.</p>
+    <p class="lead">Restaurantes, pizzarias, cervejarias, cafés e docerias da cidade. Abra o cardápio na ficha quando houver.</p>
+    <p class="aviso">Só parte das casas publica cardápio com preço. Use o filtro Com cardápio para ver as que têm. Carbonara: a única pista é uma foto no Deck Lounge; ligue antes.</p>
     <div class="filtros" id="filtros"></div>
     <div id="listaComer"></div>
   </section>
 
   <section class="vista" id="v-fazer" hidden>
     <h2>O que fazer</h2>
-    <p class="lead">Mirantes, cachoeira, centro, trilhas e produtores. Distâncias contadas a partir do centro.</p>
+    <p class="lead">Mirantes, cachoeiras, trilhas, ateliês, produtores, aventura e bate-voltas. Cada ficha diz se aceita pet.</p>
     <div class="filtros" id="filtrosF"></div>
     <div id="listaFazer"></div>
   </section>
@@ -199,7 +199,7 @@ a{color:inherit}
     <div id="listaMeus"></div>
   </section>
 
-  <p class="fontes">Informações de guias de viagem, BaresSP, Wanderlog, Tripadvisor, Guia Pet Friendly, Destino Pet e do site da Cachoeira do Lageado, levantadas em 26/11/2026. Horários, preços e regra de pet mudam: confirme antes de sair.</p>
+  <p class="fontes">Informações de guias de viagem, BaresSP, Wanderlog, Tripadvisor, Guia Pet Friendly, Destino Pet e do site da Cachoeira do Lageado, levantadas em 26/11/2026 em sites oficiais, cardápios digitais e avaliações. Horários, preços e regra de pet mudam: confirme antes de sair.</p>
 </main>
 
 <nav class="nav" aria-label="Seções">
@@ -222,7 +222,7 @@ const P=Object.fromEntries(L.map(x=>[x.id,x]));
 const DIAS=[
  {d:'27',s:'Sexta',tema:'Chegada e centro',slots:[
   {h:'15h',l:'tarde',id:'centro',alt:['benedito']},
-  {h:'17h30',l:'pôr do sol',id:'auxiliadora',alt:['cruzeiro']},
+  {h:'17h30',l:'pôr do sol',id:'auxiliadora',alt:['cruzeiro','um-sonho-de-natal-2026']},
   {h:'20h',l:'jantar',id:'imperius',nota:'Risoto de shimeji com picanha.',alt:['gringos','massamel']}]},
  {d:'28',s:'Sábado',tema:'Serra de manhã, risoto à noite',slots:[
   {h:'8h30',l:'manhã',id:'pico',nota:'Cedo, antes da neblina e da chuva da tarde.',alt:['cruzeiro']},
@@ -230,7 +230,7 @@ const DIAS=[
   {h:'15h',l:'tarde',id:'lageado',alt:['jardim','cervejarias']},
   {h:'20h',l:'jantar',id:'riso',nota:'Reservem. Perguntem sobre pet ao ligar.',alt:['gringos','nonna']}]},
  {d:'29',s:'Domingo',tema:'Aniversário e estrada',slots:[
-  {h:'9h30',l:'manhã',id:'estacao',nota:'Café e bolinho de bacalhau.',alt:['matinal']},
+  {h:'9h30',l:'manhã',id:'estacao',nota:'Café e bolinho de bacalhau. O trem não está operando; a visita é à estação e ao mirante.',alt:['matinal']},
   {h:'11h',l:'presente',id:'sabia',alt:['vovo','carijo']},
   {h:'13h',l:'almoço de aniversário',id:'donna',nota:'Reservem e avisem que é aniversário. Fecha às 18h no domingo. Atenção: a casa não aceita pet. Com o cachorro, troquem por uma das opções abaixo.',alt:['familia','cantogula','picanha']}]}
 ];
